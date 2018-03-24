@@ -1,0 +1,32 @@
+<html ng-app="app"><head>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  
+  <body ng-controller="tictactoeController">
+    <h1>Tic Tac Toe!</h1>
+    
+    <div class="container">
+      <div class="well">
+        <div><button class="btn-primary btn-lg" ng-repeat="cell in board[0]" ng-disabled="isTaken(cell);" ng-click="move(cell);">{{ cell.value }}</button></div>
+        <div><button class="btn-primary btn-lg" ng-repeat="cell in board[1]" ng-disabled="isTaken(cell);" ng-click="move(cell);">{{ cell.value }}</button></div>
+        <div><button class="btn-primary btn-lg" ng-repeat="cell in board[2]" ng-disabled="isTaken(cell);" ng-click="move(cell);">{{ cell.value }}</button></div>
+        <br/>
+        <p>
+          <span ng-show="!end">Current Player: {{ currentPlayer }}</span>
+          <span ng-show="end && winner != ''">Player {{ winner }} won!</span>
+          <span ng-show="end && winner == ''">Draw</span>
+        </p>
+      </div>
+    </div>
+          
+    <div style="text-align:center;">
+      <button ng-click="reset();" class="btn btn-primary btn-large">New Game</button>
+    </div>
+  </body>
+</html>
