@@ -2,7 +2,7 @@
 	header('Content-Type: text/html; charset=UTF-8');
 
 	include '../interfaces/MoveInterface.php';
-    include '../models/TicTacToe.php';
+	include '../models/TicTacToe.php';
 
 	$postdata = file_get_contents("php://input");
 	$request = json_decode($postdata);
@@ -25,5 +25,5 @@
 	$response = $tictactoe->makeMove($request->board,$request->playerUnit);
 
 	http_response_code(200);
-    echo json_encode(["data" => $response], JSON_UNESCAPED_SLASHES);
+	echo json_encode(["data" => $response], JSON_UNESCAPED_SLASHES);
 ?>
